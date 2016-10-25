@@ -5,9 +5,10 @@ Since jQuery does not have a core method to convert form data to a JSON object,
 this plugin was built to solve this problem.
 
 ## Usage:
-
+```HTML
     <script src="jquery.js"></script>
     <script src="jquery.serialize-object.js"></script>
+```
 
 ```HTML
     <form name="test-form" action="/test" method="post">
