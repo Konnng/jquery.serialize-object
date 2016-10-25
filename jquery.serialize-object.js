@@ -2,7 +2,8 @@
  * jquery.serialize-object.js
  * This plugin takes form data and serializes it in object like notation. Since jQuery does not have a native method for that (only serialize as string).
  * This plugin is based on http://stackoverflow.com/a/8407771/390946
- *
+ * 
+ * @version 1.0
  * @copyright CC-BY-SA Konnng.com
  * @author Julio Vedovatto <julio@konnng.com>
  */
@@ -16,7 +17,6 @@
             json = {},
             push_counters = {},
             patterns = {
-                'validate': /^[a-z][a-z0-9_\-]*(?:\[(?:\d*|[a-z0-9_\-]+)\])*$/i,
                 'key':      /[a-z0-9_\-]+|(?=\[\])/ig,
                 'push':     /^$/,
                 'fixed':    /^\d+$/,
@@ -45,18 +45,17 @@
                 merge = this.value,
                 reverse_key = this.name;
 
-
             while((k = keys.pop()) !== undefined){
 				reverse_key = reverse_key.replace(new RegExp('\\[' + k + '\\]$'), '');
 
 				switch (true) {
-					case k.match(patterns.push):
+					case patterns.push.test(k):
 						merge = self.build([], self.push_counter(reverse_key), merge);
 						break;
-					case k.match(patterns.fixed):
+					case patterns.fixed.test(k):
 						merge = self.build([], k, merge);
 						break;
-					case k.match(patterns.named):
+					case patterns.named.test(k):
 						merge = self.build({}, k, merge);
 						break;
 					default:
