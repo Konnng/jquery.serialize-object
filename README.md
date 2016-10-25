@@ -18,7 +18,6 @@ this plugin was built to solve this problem.
 
         <button type="submit">Send</button>
     </form>
-
     <script>
         $('form').on('submit', function(event){
             event.preventDefault();
@@ -32,11 +31,11 @@ The code will output on console:
 
 ```JSON
 {
-    name: 'Lorem ipsum sit amet',
-    email: 'loremipsum@sit.amet',
-    tel: {
-        home: '+55 55 55555-55555',
-        cel: '+55 55 55555-55555',
+    "name": "Lorem ipsum sit amet",
+    "email": "loremipsum@sit.amet",
+    "tel": {
+        "home": "+55 55 55555-55555",
+        "cel": "+55 55 55555-55555",
     }
 }
 ```
